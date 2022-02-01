@@ -3,8 +3,6 @@ asgiref==3.4.1
 coreapi==2.3.3
 coreschema==0.0.4
 distlib==0.3.3
-distro==1.4.0
-distro-info===0.23ubuntu1
 Django==3.2.7
 django-cors-headers==3.11.0
 django-rest-framework==0.1.0
@@ -22,8 +20,6 @@ MarkupSafe==2.0.1
 oauthlib==3.1.0
 Pillow==7.0.0
 Pygments==2.3.1
-pytz==2019.3
-pyxdg==0.26
 PyYAML==5.3.1
 reportlab==3.5.34
 usb-creator==0.3.7
