@@ -22,7 +22,7 @@ schema_view = get_schema_view(title='wildcart') # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('docs/', include_docs_urls(title='wildcart')), # new
+    path('docs/', include_docs_urls(title='wildcart')), # new
     path('api/', include('api.url')),
-    #path('schema/', schema_view), # new
+    path('schema/', schema_view), # new
 ]
