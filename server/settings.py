@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'stores',
     'wallet',
     'shop',
-    #'rest_framework',
-    #'corsheader',
+    'rest_framework',
+    'corsheader',
 ]
 
 MIDDLEWARE = [
