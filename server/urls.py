@@ -14,8 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+#from rest_framework.documentation import include_docs_urls # new
+#from rest_framework.schemas import get_schema_view # new
+from django.urls import path, include
+
+#schema_view = get_schema_view(title='wildcart') # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('docs/', include_docs_urls(title='wildcart')), # new
+    path('api/', include('api.url')),
+    #path('schema/', schema_view), # new
 ]
