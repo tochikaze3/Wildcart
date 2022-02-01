@@ -5,7 +5,6 @@ bcrypt==3.1.7
 blinker==1.4
 certifi==2019.11.28
 chardet==3.0.4
-cliapp==1.20180812.1
 Click==7.0
 cmdtest==0.32+git
 colorama==0.4.3
