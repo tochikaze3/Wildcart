@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'wallet',
     'shop',
     'rest_framework',
-    'corsheader',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
