@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'wallet',
     'shop',
     'rest_framework',
-    #'corsheader',
+    'corsheader',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +56,11 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', #local
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+# CORS CONFIGURATION
+CORS_ORIGIN_ALLOW_ALL= True
+CORS_ORIGIN_WHITELIST= ('http://localhost:5000', 'http://localhost:3000')
+
 
 ROOT_URLCONF = 'server.urls'
 
