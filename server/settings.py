@@ -59,7 +59,7 @@ MIDDLEWARE = [
 
 # CORS CONFIGURATION
 CORS_ORIGIN_ALLOW_ALL= True
-CORS_ORIGIN_WHITELIST= ('http://localhost:5000', 'http://localhost:3000', 'http://localhost:5555',)
+#CORS_ORIGIN_WHITELIST= ('http://localhost:5000', 'http://localhost:3000', 'http://localhost:5555',)
 
 
 ROOT_URLCONF = 'server.urls'
