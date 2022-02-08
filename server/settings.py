@@ -59,7 +59,7 @@ MIDDLEWARE = [
 
 # CORS CONFIGURATION
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST= ('http://localhost:5000', 'http://localhost:3000', 'http://localhost:5555',)
+CORS_ORIGIN_WHITELIST= ('http://localhost:5000', 'http://localhost:3000', 'http://localhost:5555')
 
 
 ROOT_URLCONF = 'server.urls'
@@ -88,10 +88,21 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd7120nmt72g8ok',
+        'HOST': 'ec2-54-87-112-29.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'dbyolnhegemfyg',
+        'PASSWORD': '1f6261e67caa0ce7a5a889d81199a80929ba26fdd63e09bf88859e652767aa5f'
     }
 }
+
+#DATABASES = {
+   # 'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+     #   'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
 
 
 # Password validation

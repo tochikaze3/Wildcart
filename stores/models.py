@@ -20,7 +20,7 @@ def get_all_categories():
 
 class Products(models.Model):
         product_Name = models.CharField(max_length=250, help_text = 'Enter product name' )
-        upload_Product_Image = models.ImageField(default='default.jpg')
+        upload_Product_Image = models.ImageField(default='default.jpg', upload_to = 'staticfiles/images')
         product_Description = models.CharField(default = '', max_length= 200)
         weight = models.CharField(max_length= 10, default = 'g/kg/lb', blank= True)
 
