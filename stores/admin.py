@@ -1,9 +1,6 @@
 from django.contrib import admin
 from .models import Products, Vendor, Category, ProductImage
 # Register your models here.
-
-
-from .models import ProductImage
  
 class ProductImageAdmin(admin.StackedInline):
     model = ProductImage

@@ -1,7 +1,6 @@
-
 from django.db import models
+from getnote import settings
 # Create your models here.
-
 
 
 class Category(models.Model):
@@ -14,8 +13,6 @@ class Category(models.Model):
 @staticmethod
 def get_all_categories():
     return Category.objects.all()
-
-
 
 
 class Products(models.Model):
@@ -44,8 +41,7 @@ class ProductImage(models.Model):
     images = models.FileField(upload_to = 'images/')
  
     def __str__(self):
-        return self.product.product_Name
-
+        return self.product
 
 
 class Vendor(models.Model):
@@ -57,3 +53,26 @@ class Vendor(models.Model):
 
     def __str__(self):
         return self.store_name
+============================================================================
+
+class TweetFile(models.Model):
+    tweep =  models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    media = models.FileField(upload_to='images')
+
+    def __str__(self):
+        return f"{self.tweep.username}'s media images"
+
+
+class Tweets(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    texts = models.TextField()
+    file_content = models.ManyToManyField(TweetFile, related_name='file_content', blank=True, null=True)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    tweep = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    class Meta:
+
+        verbose_name_plural = _('Tweets')
+
+    def __str__(self):
+        return f"{self.texts}"
