@@ -1,4 +1,4 @@
-from unicodedata import category
+
 from rest_framework import viewsets, generics
 #from .permissions import IsAuthorOrReadOnly
 from stores.models import Store, Category, Products
@@ -15,7 +15,7 @@ from .serializers import StoreSerializer,ProductSerializer, CategorySerializer
         #queryset = CustomUser.objects.all()
         #serializer_class = UserSerializer
 
-class StoreList(generics.ListAPIView):
+class StoreList(generics.ListCreateAPIView):
         queryset = Store.objects.all()
         serializer_class = StoreSerializer
         
