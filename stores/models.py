@@ -47,12 +47,11 @@ class Products(models.Model):
 
 
 
-class Store(models.Model):
+class Vendor(models.Model):
     store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
-    #products = models.ForeignKey(Products, on_delete=models.CASCADE,)
-    email = models.EmailField(default= '', max_length= 250, help_text= 'Your email name')
     about = models.TextField(max_length=1000, help_text='Give a catchy description of your store', default= '')
     phone = models.CharField(max_length=20, default= "", null= False, blank= False)
+    email = models.EmailField(default= '', max_length= 250, help_text= 'Your email name')
     location = models.CharField(help_text= 'Enter your store location', default= '', max_length= 250)
 
     def __str__(self):

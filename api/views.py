@@ -1,8 +1,8 @@
 
 from rest_framework import viewsets, generics
 #from .permissions import IsAuthorOrReadOnly
-from stores.models import Store, Category, Products
-from .serializers import StoreSerializer,ProductSerializer, CategorySerializer
+from stores.models import Vendor, Category, Products
+from .serializers import VendorSerializer,ProductSerializer, CategorySerializer
 
 
  
@@ -15,15 +15,15 @@ from .serializers import StoreSerializer,ProductSerializer, CategorySerializer
         #queryset = CustomUser.objects.all()
         #serializer_class = UserSerializer
 
-class StoreList(generics.ListCreateAPIView):
-        queryset = Store.objects.all()
-        serializer_class = StoreSerializer
+class VendorList(generics.ListCreateAPIView):
+        queryset = Vendor.objects.all()
+        serializer_class = VendorSerializer
         
    
 
-class StoreDetail(generics.RetrieveUpdateDestroyAPIView):
-        queryset = Store.objects.all()
-        serializer_class = StoreSerializer
+class VendorDetail(generics.RetrieveUpdateDestroyAPIView):
+        queryset = Vendor.objects.all()
+        serializer_class = VendorSerializer
 
 
 class CategoryList(generics.ListCreateAPIView):

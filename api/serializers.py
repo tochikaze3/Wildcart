@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from stores.models import Products, Category, Store
+from stores.models import Products, Category, Vendor
 
 #vendor_api serializers
 #class UserSerializer(serializers.ModelSerializer):
@@ -21,8 +21,8 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
-class StoreSerializer(serializers.ModelSerializer):
+class VendorSerializer(serializers.ModelSerializer):
     
     class Meta: 
-        model = Store
+        model = Vendor
         fields = '__all__'

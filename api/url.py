@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from .views import ProductList, ProductDetails, StoreList, StoreDetail, CategoryList, CategoryDetail 
+from .views import ProductList, ProductDetails, VendorList, VendorDetail, CategoryList, CategoryDetail 
 
 
 # Wire up our API using automatic URL routing.
@@ -9,6 +9,6 @@ from .views import ProductList, ProductDetails, StoreList, StoreDetail, Category
 urlpatterns = [
     path('products/', ProductList.as_view(), name='Product_list'),
     path('products/<int:pk>/', ProductDetails.as_view(), name='Product_detail'), 
-    path('stores/', StoreList.as_view(), name='Store_list'),
-    path('stores/<int:pk>/', StoreDetail.as_view(), name='Store-detail'),
+    path('Vendors/', VendorList.as_view(), name='Store_list'),
+    path('Vendors/<int:pk>/', VendorDetail.as_view(), name='Store-detail'),
 ]
