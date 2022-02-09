@@ -19,6 +19,6 @@ class ProductsAdmin(admin.ModelAdmin):
 class ProductImageAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(Products)
+#admin.site.register(Products)
 admin.site.register(Vendor)
 admin.site.register(Category)
