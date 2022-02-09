@@ -39,10 +39,6 @@ class Products(models.Model):
         def __str__(self):
             return self.product_Name
 
-
-
-
-
 class Store(models.Model):
     store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
     logo = models.ImageField(default='default.jpg')
