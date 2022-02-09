@@ -1,4 +1,5 @@
 
+from itertools import product
 from django.db import models
 # Create your models here.
 
@@ -38,6 +39,15 @@ class Products(models.Model):
         
         def __str__(self):
             return self.product_Name
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Products, default=None, on_delete=models.CASCADE)
+    images = models.FileField(upload_to = 'images/')
+ 
+    def __str__(self):
+        return self.product.product_Name
+
+
 
 class Store(models.Model):
     store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)

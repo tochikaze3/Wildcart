@@ -20,7 +20,7 @@ def get_all_categories():
 
 class Products(models.Model):
         product_Name = models.CharField(max_length=250, help_text = 'Enter product name' )
-        upload_Product_Image = models.ImageField(default='default.jpg', upload_to = 'staticfiles/images')
+        upload_Product_Image = models.ImageField(default='default.jpg')
         product_Description = models.CharField(default = '', max_length= 200)
         weight = models.CharField(max_length= 10, default = 'g/kg/lb', blank= True)
 
@@ -29,21 +29,22 @@ class Products(models.Model):
             ('XX', 'Large'),
             ('XXL', 'Extra large'),
             )
-        Currency = (
-            ('Naira Token','NGNT'),
-            ('Dollar','USD'),
-        )
 
         size = models.CharField(max_length=5, choices= Size_Status, blank= True, default='X')
         stock = models.IntegerField(default= 'Choose total number of goods available')
-        currency = models.CharField(max_length= 11, choices= Currency, help_text='The Naira Token is a stablecoin tied to the value of the naira, in other words NGN200 = NGNT200', default= 00.00)
+        currency = models.CharField(max_length= 11, default= 00.00)
         price = models.DecimalField(max_digits=1000, decimal_places=2)
                 
         
         def __str__(self):
             return self.product_Name
 
-
+class ProductImage(models.Model):
+    product = models.ForeignKey(Products, default=None, on_delete=models.CASCADE)
+    images = models.FileField(upload_to = 'images/')
+ 
+    def __str__(self):
+        return self.product.product_Name
 
 
 
