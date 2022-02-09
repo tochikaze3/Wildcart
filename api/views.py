@@ -26,7 +26,7 @@ class StoreDetail(generics.RetrieveUpdateDestroyAPIView):
         serializer_class = StoreSerializer
 
 
-class CategoryList(generics.ListAPIView):
+class CategoryList(generics.ListCreateAPIView):
         queryset = Category.objects.all()
         serializer_class = CategorySerializer
    
@@ -38,7 +38,7 @@ class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 #buyer views
-class ProductList(generics.ListAPIView):
+class ProductList(generics.ListCreateAPIView):
         queryset = Products.objects.all()
         serializer_class = ProductSerializer
 
