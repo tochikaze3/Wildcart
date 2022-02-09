@@ -29,14 +29,10 @@ class Products(models.Model):
             ('XX', 'Large'),
             ('XXL', 'Extra large'),
             )
-        Currency = (
-            ('Naira Token','NGNT'),
-            ('Dollar','USD'),
-        )
 
         size = models.CharField(max_length=5, choices= Size_Status, blank= True, default='X')
         stock = models.IntegerField(default= 'Choose total number of goods available')
-        currency = models.CharField(max_length= 11, choices= Currency, default= 00.00)
+        currency = models.CharField(max_length= 11, default= 00.00)
         price = models.DecimalField(max_digits=1000, decimal_places=2)
                 
         
