@@ -1,5 +1,6 @@
 
 from django.db import models
+import uuid
 # Create your models here.
 
 
@@ -19,6 +20,7 @@ def get_all_categories():
 
 
 class Products(models.Model):
+        id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
         product_Name = models.CharField(max_length=250, help_text = 'Enter product name' )
         upload_Product_Image = models.ImageField(default='default.jpg', upload_to = 'staticfiles/images')
         product_Description = models.CharField(default = '', max_length= 200)
