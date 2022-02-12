@@ -7,9 +7,9 @@ from rest_framework.routers import SimpleRouter
 
 
 router = SimpleRouter()
-router.register('vendors/', VendorViewSet) 
-router.register('products/', ProductViewSet)
-router.register('productimages/', ProductImageViewSet)
-router.register('categories/', CategoryViewSet)
+router.register('vendors', VendorViewSet, basename= 'vendors') 
+router.register('products', ProductViewSet, basename= 'products')
+router.register('productimages/', ProductImageViewSet, basename= 'productimages')
+router.register('categories/', CategoryViewSet, basename= 'categories')
 
 urlpatterns = router.urls

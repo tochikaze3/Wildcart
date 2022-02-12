@@ -1,6 +1,5 @@
 from django.db import models
 import uuid
-
 # Create your models here.
 
 
@@ -41,9 +40,7 @@ class Products(models.Model):
 class ProductImage(models.Model):
     product = models.ForeignKey(Products, default=None, on_delete=models.CASCADE)
     images = models.FileField(upload_to = 'images/')
- 
-    def __str__(self):
-        return self.product.Product_Name
+
 
 
 class Vendor(models.Model):
