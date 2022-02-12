@@ -1,8 +1,7 @@
-
-from rest_framework import viewsets, generics
+from rest_framework import viewsets
 #from .permissions import IsAuthorOrReadOnly
-from stores.models import Vendor, Category, Products
-from .serializers import VendorSerializer,ProductSerializer, CategorySerializer
+from stores.models import Vendor, Category, Products, ProductImage
+from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer
 
 
  
@@ -15,34 +14,19 @@ from .serializers import VendorSerializer,ProductSerializer, CategorySerializer
         #queryset = CustomUser.objects.all()
         #serializer_class = UserSerializer
 
-class VendorList(generics.ListCreateAPIView):
-        queryset = Vendor.objects.all()
-        serializer_class = VendorSerializer
-        
-   
-
-class VendorDetail(generics.RetrieveUpdateDestroyAPIView):
+class VendorViewSet(viewsets.ModelViewSet):
         queryset = Vendor.objects.all()
         serializer_class = VendorSerializer
 
 
-class CategoryList(generics.ListCreateAPIView):
+class CategoryViewSet(viewsets.ModelViewSet):
         queryset = Category.objects.all()
         serializer_class = CategorySerializer
-   
 
-class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
-        queryset = Category.objects.all()
-        serializer_class = CategorySerializer
-        
-
-
-
-class ProductList(generics.ListCreateAPIView):
+class ProductViewSet(viewsets.ModelViewSet):
         queryset = Products.objects.all()
         serializer_class = ProductSerializer
 
-
-class ProductDetails(generics.RetrieveUpdateDestroyAPIView):
-        queryset = Products.objects.all()
-        serializer_class = ProductSerializer
+class ProductImageViewSet(viewsets.ModelViewSet): # new permission_classes = (IsAuthorOrReadOnly,) 
+        queryset = ProductImage.objects.all() 
+        serializer_class = ProductImageSerializer
