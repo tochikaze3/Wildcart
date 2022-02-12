@@ -1,8 +1,4 @@
 from django.contrib import admin
-<<<<<<< HEAD
-from .models import Products, Vendor, Category
-# Register your models here.e
-=======
 from .models import Products, Vendor, Category, ProductImage
 # Register your models here.
  
@@ -19,7 +15,6 @@ class ProductsAdmin(admin.ModelAdmin):
 @admin.register(ProductImage)
 class ProductImageAdmin(admin.ModelAdmin):
     pass
->>>>>>> test
 
 #admin.site.register(Products)
 admin.site.register(Vendor)
