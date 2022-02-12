@@ -28,7 +28,7 @@ class VendorSerializer(serializers.ModelSerializer):
         model = Vendor
         fields = '__all__'
 
-class ProductImageSerializer(serializers.ModelSerializer0):
+class ProductImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductImage
