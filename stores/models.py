@@ -1,9 +1,5 @@
 from django.db import models
-<<<<<<< HEAD
 import uuid
-# Create your models here.
-=======
->>>>>>> test
 
 # Create your models here.
 

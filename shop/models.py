@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 from django.db import models
 # Create your models here.
 
@@ -60,4 +58,3 @@ class Store(models.Model):
 
     def __str__(self):
         return self.store_name
->>>>>>> test
