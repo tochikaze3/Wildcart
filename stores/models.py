@@ -43,7 +43,7 @@ class ProductImage(models.Model):
     images = models.FileField(upload_to = 'images/')
  
     def __str__(self):
-        return self.product
+        return self.product.Product_Name
 
 
 class Vendor(models.Model):
