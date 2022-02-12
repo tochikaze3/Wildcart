@@ -1,4 +1,3 @@
-from dataclasses import field, fields
 from rest_framework import serializers
 from stores.models import Products, Category, Vendor, ProductImage
 
