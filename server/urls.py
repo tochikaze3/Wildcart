@@ -23,6 +23,8 @@ schema_view = get_schema_view(title='wildcart')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', include_docs_urls(title='wildcart')), 
-    path('api/', include('api.url')),
+    path('api/v1/', include('api.url')),
+    path('api-auth/', include('rest_framework.urls')), 
+    path('api/v1/rest-auth/', include('rest_auth.urls')),
     path('schema/', schema_view), 
 ]

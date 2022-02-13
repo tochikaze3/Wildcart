@@ -42,13 +42,15 @@ INSTALLED_APPS = [
     'wallet',
     'shop',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
     'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware', #local
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -82,7 +84,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'server.wsgi.application'
 
+REST_FRAMEWORK = { 'DEFAULT_PERMISSION_CLASSES': [
+'rest_framework.permissions.IsAuthenticated',
+],
 
+'DEFAULT_AUTHENTICATION_CLASSES': [ # new
+'rest_framework.authentication.SessionAuthentication', 
+'rest_framework.authentication.BasicAuthentication'
+],
+}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
