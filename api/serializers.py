@@ -2,6 +2,7 @@ from rest_framework import serializers
 from stores.models import Products, Category, ProductImage 
 from accounts.models import UserProfile, Vendor
 #vendor_api serializers
+
 class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
