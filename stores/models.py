@@ -1,5 +1,4 @@
 from django.db import models
-from accounts.models import Vendor 
 # Create your models here.
 
 
@@ -41,3 +40,17 @@ class ProductImage(models.Model):
  
     def __str__(self):
         return self.product
+
+
+
+class Vendor(models.Model):
+    #user = models.OneToOneField(UserProfile, related_name='vendor', on_delete=models.CASCADE)
+    store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
+    logo = models.ImageField(upload_to = 'media/profile')
+    about = models.TextField(max_length=1000, help_text='Give a catchy description of your store', default= '')
+    phone = models.CharField(max_length=20, default= "", null= False, blank= False)
+    email = models.EmailField(default= '', max_length= 250, help_text= 'Your email name')
+    location = models.CharField(help_text= 'Enter your store location', default= '', max_length= 250)
+
+    def __str__(self):       
+        return self.store_name

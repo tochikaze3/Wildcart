@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
+    #'accounts',
     'api',
     'stores',
     'wallet',
@@ -94,10 +94,10 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 
 
-AUTH_USER_MODEL = 'accounts.UserProfile'
-REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
-}
+#AUTH_USER_MODEL = 'accounts.UserProfile'
+#REST_AUTH_SERIALIZERS = {
+#    'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
+#}
 
 
 #REST FRAMEWORK CONFIGURATION
