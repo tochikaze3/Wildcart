@@ -1,5 +1,5 @@
 from django.db import models
-
+from accounts.models import Vendor 
 # Create your models here.
 
 
@@ -29,8 +29,7 @@ class Products(models.Model):
 
         size = models.CharField(max_length=5, choices= Size_Status, blank= True, default='X')
         stock = models.IntegerField(default= 'Choose total number of goods available')
-        currency = models.CharField(max_length= 11, default= 00.00)
-        price = models.DecimalField(max_digits=1000, decimal_places=2)
+        price = models.DecimalField(max_digits=1000,  default= 00.00, decimal_places=2)
                 
         
         def __str__(self):
@@ -42,14 +41,3 @@ class ProductImage(models.Model):
  
     def __str__(self):
         return self.product
-
-
-class Vendor(models.Model):
-    store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
-    about = models.TextField(max_length=1000, help_text='Give a catchy description of your store', default= '')
-    phone = models.CharField(max_length=20, default= "", null= False, blank= False)
-    email = models.EmailField(default= '', max_length= 250, help_text= 'Your email name')
-    location = models.CharField(help_text= 'Enter your store location', default= '', max_length= 250)
-
-    def __str__(self):
-        return self.store_name

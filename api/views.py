@@ -14,6 +14,8 @@ from .serializers import VendorSerializer,ProductSerializer, CategorySerializer,
         #queryset = CustomUser.objects.all()
         #serializer_class = UserSerializer
 
+
+
 class VendorViewSet(viewsets.ModelViewSet):
         queryset = Vendor.objects.all()
         serializer_class = VendorSerializer

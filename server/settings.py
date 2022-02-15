@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+
+
+
 import os
 from pathlib import Path
 
@@ -37,14 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
     'api',
     'stores',
     'wallet',
-    'shop',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
     'corsheaders',
+    'allauth', 
+    'allauth.account', 
+    'allauth.socialaccount',
+    'rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -61,10 +68,11 @@ MIDDLEWARE = [
 
 # CORS CONFIGURATION
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST= ('http://localhost:5000', 'http://localhost:3000', 'http://localhost:5555')
+CORS_ORIGIN_WHITELIST= ('http://localhost:5000', 'http://localhost:3000', 'http://localhost:5555',)
 
 
 ROOT_URLCONF = 'server.urls'
+
 
 TEMPLATES = [
     {
@@ -84,15 +92,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'server.wsgi.application'
 
-REST_FRAMEWORK = { 'DEFAULT_PERMISSION_CLASSES': [
-'rest_framework.permissions.IsAuthenticated',
-],
 
-'DEFAULT_AUTHENTICATION_CLASSES': [ # new
-'rest_framework.authentication.SessionAuthentication', 
-'rest_framework.authentication.BasicAuthentication'
-],
+
+AUTH_USER_MODEL = 'accounts.UserProfile'
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
 }
+
+
+#REST FRAMEWORK CONFIGURATION
+
+REST_FRAMEWORK = { 
+    'DEFAULT_PERMISSION_CLASSES': [
+    'rest_framework.permissions.IsAuthenticated',
+],
+    'DEFAULT_AUTHENTICATION_CLASSES': [ 
+    'rest_framework.authentication.SessionAuthentication', 
+    'rest_framework.authentication.BasicAuthentication',
+],
+    }
+    
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -146,6 +165,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)
