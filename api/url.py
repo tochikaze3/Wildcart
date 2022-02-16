@@ -1,15 +1,15 @@
 from django.urls import path
 from .views import ProductViewSet,ProductImageViewSet, VendorViewSet, CategoryViewSet
-from rest_framework.routers import SimpleRouter
+from rest_framework import routers
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 
 
-router = SimpleRouter()
-router.register('vendors', VendorViewSet, basename='vendors') 
-router.register('products', ProductViewSet, basename='products')
-router.register('productimages', ProductImageViewSet, basename='productimages')
-router.register('categories', CategoryViewSet, basename='categories')
+router = routers.DefaultRouter()
+router.register(r'vendors', VendorViewSet, basename='vendors') 
+router.register(r'products', ProductViewSet, basename='products')
+router.register(r'productimages', ProductImageViewSet, basename='productimages')
+router.register(r'categories', CategoryViewSet, basename='categories')
 
 urlpatterns = router.urls
