@@ -16,7 +16,7 @@ def get_all_categories():
 
 class Products(models.Model):
         product_Name = models.CharField(max_length=250, help_text = 'Enter product name' )
-        upload_Product_Image = models.ImageField(default='default.jpg')
+        upload_Product_Image = models.ImageField(default='default.jpg', upload_to = 'staticfiles/products')
         product_Description = models.CharField(default = '', max_length= 200)
         weight = models.CharField(max_length= 10, default = 'g/kg/lb', blank= True)
 
@@ -36,17 +36,17 @@ class Products(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Products, default=None, on_delete=models.CASCADE)
-    images = models.FileField(upload_to = 'images/')
+    images = models.ImageField(upload_to = 'staticfiles/products')
  
     def __str__(self):
-        return self.product
+        return self.product.product_Name
 
 
 
 class Vendor(models.Model):
     #user = models.OneToOneField(UserProfile, related_name='vendor', on_delete=models.CASCADE)
     store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
-    logo = models.ImageField(upload_to = 'media/profile')
+    logo = models.ImageField( upload_to = 'staticfiles/profilepic')
     about = models.TextField(max_length=1000, help_text='Give a catchy description of your store', default= '')
     phone = models.CharField(max_length=20, default= "", null= False, blank= False)
     email = models.EmailField(default= '', max_length= 250, help_text= 'Your email name')
