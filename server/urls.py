@@ -26,5 +26,6 @@ urlpatterns = [
     path('api/v1/', include('api.url')),
     path('api-auth/', include('rest_framework.urls')), 
     path('api/v1/rest-auth/', include('rest_auth.urls')),
-    path('schema/', schema_view), 
+    path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
+     path('schema/', schema_view), 
 ]
