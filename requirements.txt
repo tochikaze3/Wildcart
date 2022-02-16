@@ -2,9 +2,6 @@
 asgiref==3.4.1
 astroid==2.3.3
 blinker==1.4
-certifi==2019.11.28
-chardet==3.0.4
-cliapp==1.20180812.1
 Click==7.0
 coreapi==2.3.3
 coreschema==0.0.4
