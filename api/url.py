@@ -7,9 +7,16 @@ from rest_framework.routers import SimpleRouter
 
 
 router = SimpleRouter()
+<<<<<<< HEAD
 router.register('vendors', VendorViewSet, basename= 'vendors') 
 router.register('products', ProductViewSet, basename= 'products')
 router.register('productimages/', ProductImageViewSet, basename= 'productimages')
 router.register('categories/', CategoryViewSet, basename= 'categories')
+=======
+router.register('vendors', VendorViewSet, basename='vendors') 
+router.register('products', ProductViewSet, basename='products')
+router.register('productimages', ProductImageViewSet, basename='productimages')
+router.register('categories', CategoryViewSet, basename='categories')
+>>>>>>> test
 
 urlpatterns = router.urls

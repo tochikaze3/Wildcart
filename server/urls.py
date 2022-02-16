@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from rest_framework.documentation import include_docs_urls 
+<<<<<<< HEAD
 from rest_framework.schemas import get_schema_view
 from django.urls import path, include
 
@@ -27,4 +28,19 @@ urlpatterns = [
     path('docs/', include_docs_urls(title='wildcart')),
     path('api/', include('api.url')),
     path('schema/', schema_view),
+=======
+from rest_framework.schemas import get_schema_view 
+from django.urls import path, include
+
+schema_view = get_schema_view(title='wildcart') 
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('docs/', include_docs_urls(title='wildcart')), 
+    path('api/v1/', include('api.url')),
+    path('api-auth/', include('rest_framework.urls')), 
+    path('api/v1/rest-auth/', include('rest_auth.urls')),
+    path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
+     path('schema/', schema_view), 
+>>>>>>> test
 ]

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Products, Vendor, Category, ProductImage
+from .models import Products, Category, ProductImage, Vendor
 # Register your models here.
  
 class ProductImageAdmin(admin.StackedInline):
@@ -17,5 +17,5 @@ class ProductImageAdmin(admin.ModelAdmin):
     pass
 
 #admin.site.register(Products)
-admin.site.register(Vendor)
 admin.site.register(Category)
+admin.site.register(Vendor)
