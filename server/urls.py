@@ -22,7 +22,7 @@ from django.urls import path, include
 schema_view = get_schema_view(title='wildcart') 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+   path('admin/', admin.site.urls),
     path('docs/', include_docs_urls(title='wildcart')), 
     path('api/v1/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')), 

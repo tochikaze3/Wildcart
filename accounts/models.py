@@ -1,5 +1,3 @@
-from enum import unique
-from typing_extensions import Required
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
@@ -19,7 +17,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'email']
+    REQUIRED_FIELDS = ['username']
     objects = UserManager()
     
     def __str__(self):
