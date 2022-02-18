@@ -1,4 +1,4 @@
-from django.contrib.auth.base_user import AbstractBaseUser,BaseUserManager
+from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 
 class UserManager(BaseUserManager):
@@ -14,14 +14,15 @@ class UserManager(BaseUserManager):
         user.set_password(password)
         user.save()
 
+        return user
 
-    def create_superuser(self, email, password=None):
+    def create_superuser(self, username, email, password=None):
         
         if password is None:
                 raise TypeError('password must be filled')
 
-        user = self.create_user(email, password)
+        user = self.create_user(username, email, password)
         user.is_superuser = True
-        user.is_staff = True
+        user.is_staff = False
         user.save()
-        
+        return user
