@@ -1,2 +1,2 @@
 # Wildcart
-A multi-vendor store 
+A multi-vendor store built with django and React
