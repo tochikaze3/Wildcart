@@ -5,15 +5,11 @@ from .manager import UserManager
  # Create your models here.
 
 class User(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField(max_length=250, unique=True, db_index=True)
+    username = models.CharField(max_length=250, unique=True, db_index=False)
     email = models.EmailField(unique=True)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_staff = models.BooleanField(default=True)
-    is_superuser = models.BooleanField(default=True)
-    is_active = models.BooleanField(default=True)
-
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
@@ -21,7 +17,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     def __str__(self):
         return self.email
-
-    def tokens(self):
-          return ""
-
