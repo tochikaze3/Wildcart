@@ -1,9 +1,14 @@
 from rest_framework import viewsets
 #from .permissions import IsAuthorOrReadOnly
+from django.contrib.auth import get_user_model
 from stores.models import Vendor, Category, Products, ProductImage, Services
-from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer, ServiceSerializer
+from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer, ServiceSerializer, UserSerializer
 
 
+class UserViewSet(viewsets.ModelViewSet):
+        queryset = get_user_model().objects.all()
+        serializer_class = UserSerializer
+   
 class ServiceViewSet(viewsets.ModelViewSet):
         queryset = Services.objects.all()
         serializer_class = ServiceSerializer
@@ -12,13 +17,11 @@ class VendorViewSet(viewsets.ModelViewSet):
         queryset = Vendor.objects.all()
         serializer_class = VendorSerializer
 
-
 class CategoryViewSet(viewsets.ModelViewSet):
         queryset = Category.objects.all()
         serializer_class = CategorySerializer
 
 class ProductViewSet(viewsets.ModelViewSet):
-        
         queryset = Products.objects.all()
         serializer_class = ProductSerializer
 
