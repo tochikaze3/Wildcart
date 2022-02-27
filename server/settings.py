@@ -40,9 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
     'api',
     'stores',
     'wallet',
+    'oauth2_provider',
+    'social_django',
+    'drf_social_oauth2',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
@@ -52,6 +56,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'rest_auth.registration',
 ]
+
+AUTH_USER_MODEL='accounts.Account'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -92,6 +98,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'server.wsgi.application'
 
 
+AUTHENTICATION_BACKENDS = (  
+  'drf_social_oauth2.backends.DjangoOAuth2',
+  'django.contrib.auth.backends.ModelBackend',
+)
+REST_FRAMEWORK = {
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+       'oauth2_provider.contrib.rest_framework.OAuth2Authentication',  
+       'drf_social_oauth2.authentication.SocialAuthentication',
+   )
+}
 
 #REST_AUTH_SERIALIZERS = {
   #  'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
@@ -107,6 +123,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [ 
     'rest_framework.authentication.SessionAuthentication', 
     'rest_framework.authentication.BasicAuthentication',
+    'oauth2_provider.contrib.rest_framework.OAuth2Authentication',  
+    'drf_social_oauth2.authentication.SocialAuthentication',
 ],
     }
     
