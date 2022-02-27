@@ -94,10 +94,10 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 
 
-AUTH_USER_MODEL = 'accounts.User'
-#REST_AUTH_SERIALIZERS = {
-#    'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
-#}
+AUTH_USER_MODEL = 'accounts.CustomUser'
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
+}
 
 
 #REST FRAMEWORK CONFIGURATION

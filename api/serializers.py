@@ -1,14 +1,22 @@
 from rest_framework import serializers
-from stores.models import Products, Category, ProductImage, Vendor
+from stores.models import Products, Category, ProductImage, Vendor, Services
+from accounts.models import CustomUser
 #vendor_api serializers
 
-#class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     
-    #class Meta:
-        #model = UserProfile() 
-        #fields = ('id', 'email',)
+    class Meta:
+        model = CustomUser() 
+        fields = ('id', 'email',)
 
  
+class ServiceSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Services
+        fields = '__all__'
+
+
 class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:
