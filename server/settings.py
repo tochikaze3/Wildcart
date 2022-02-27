@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'accounts',
     'stores',
     'wallet',
     'rest_framework',
@@ -94,7 +93,6 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
 }

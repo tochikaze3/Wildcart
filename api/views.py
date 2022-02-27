@@ -1,13 +1,8 @@
 from rest_framework import viewsets
 #from .permissions import IsAuthorOrReadOnly
 from stores.models import Vendor, Category, Products, ProductImage, Services
-from accounts.models import CustomUser
 from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer, ServiceSerializer, UserSerializer
 
-
-class UserViewSet(viewsets.ModelViewSet):
-        queryset = CustomUser.objects.all()
-        serializer_class = UserSerializer
 
 class ServiceViewSet(viewsets.ModelViewSet):
         queryset = Services.objects.all()
