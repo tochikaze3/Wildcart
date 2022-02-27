@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserViewSet, ProductViewSet,ProductImageViewSet, VendorViewSet, CategoryViewSet, ServiceViewSet
+from .views import ProductViewSet,ProductImageViewSet, VendorViewSet, CategoryViewSet, ServiceViewSet
 from rest_framework import routers
 
 # Wire up our API using automatic URL routing.

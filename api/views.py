@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 #from .permissions import IsAuthorOrReadOnly
 from stores.models import Vendor, Category, Products, ProductImage, Services
-from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer, ServiceSerializer, UserSerializer
+from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer, ServiceSerializer
 
 
 class ServiceViewSet(viewsets.ModelViewSet):
