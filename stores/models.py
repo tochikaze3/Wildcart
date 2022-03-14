@@ -43,7 +43,7 @@ class Products(models.Model):
     size = models.CharField(max_length=5, choices= Size_Status, blank= True, default='X')
     stock = models.IntegerField()
     #imageUrl = models.URLField(default='')
-   #created_by = models.ForeignKey('auth.User', related_name='products', on_delete=models.CASCADE)
+    #created_by = models.ForeignKey('auth.User', related_name='products', on_delete=models.CASCADE)
     status = models.BooleanField(default=True)
     date_created = models.DateField(default=timezone.now)
 
