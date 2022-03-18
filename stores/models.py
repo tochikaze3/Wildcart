@@ -18,7 +18,7 @@ def get_all_categories():
 class Vendor(models.Model):
     #user = models.OneToOneField(UserProfile, related_name='vendor', on_delete=models.CASCADE)
     store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
-    logo = models.ImageField( upload_to = 'staticfiles/profilepic')
+    logo = models.ImageField( upload_to = 'profilepic')
     about = models.TextField(max_length=1000, help_text='Give a catchy description of your store', default= '')
     phone = models.CharField(max_length=20, default= "", null= False, blank= False)
     email = models.EmailField(default= '', max_length= 250, help_text= 'Your email name')
@@ -30,7 +30,7 @@ class Vendor(models.Model):
 class Products(models.Model):
     product_name = models.CharField(max_length=100, default = '')
     #store_name = models.ForeignKey(Vendor, default = '', on_delete= models.CASCADE)
-    upload_Product_Image = models.ImageField(default='default.jpg', upload_to = 'staticfiles/products')
+    upload_Product_Image = models.ImageField(default='default.jpg', upload_to = 'products')
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE, default = '')
     price = models.IntegerField()
     Size_Status = (
