@@ -28,8 +28,7 @@ class Vendor(models.Model):
         return self.store_name
 
 class Products(models.Model):
-    product_tag = models.CharField(max_length=10, default= '')
-    name = models.CharField(max_length=100, default = '')
+    product_name = models.CharField(max_length=100, default = '')
     #store_name = models.ForeignKey(Vendor, default = '', on_delete= models.CASCADE)
     upload_Product_Image = models.ImageField(default='default.jpg', upload_to = 'staticfiles/products')
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE, default = '')
@@ -51,14 +50,14 @@ class Products(models.Model):
         ordering = ['-date_created']
 
     def __str__(self):
-        return '{} {}'.format(self.product_tag, self.name)
+        return '{} {}'.format(self.product_name)
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Products, default=None, on_delete=models.CASCADE)
     images = models.ImageField(upload_to = 'products')
  
     def __str__(self):
-        return self.product.product_Name
+        return self.product.product_name
 
 
 class Services(models.Model):
