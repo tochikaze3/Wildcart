@@ -33,11 +33,7 @@ class Vendor(models.Model):
         return self.store_name
 
 class Products(models.Model):
-<<<<<<< HEAD
-    Product_name = models.CharField(max_length=100, default = '')
-=======
     product_name = models.CharField(max_length=100, default = '')
->>>>>>> email
     #store_name = models.ForeignKey(Vendor, default = '', on_delete= models.CASCADE)
     description = models.TextField(blank=True, null=True)
     slug = models.SlugField(default='')
@@ -63,9 +59,6 @@ class Products(models.Model):
 
        
     def __str__(self):
-<<<<<<< HEAD
-        return '{} {}'.format(self.Product_name)
-=======
         return self.product_name
     
     def get_absolute_url(self):
@@ -100,7 +93,6 @@ class Products(models.Model):
 
         return thumbnail
 
->>>>>>> email
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Products, default=None, on_delete=models.CASCADE)
