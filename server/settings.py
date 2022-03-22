@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'api',
     'stores',
-    'wallet',
+    'order',
     'oauth2_provider',
     'social_django',
     'drf_social_oauth2',
@@ -201,7 +201,7 @@ STATIC_URL = '/staticfiles/'
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
+#MEDIA_ROOT = BASE_DIR / 'media/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
