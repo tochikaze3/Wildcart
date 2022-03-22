@@ -1,6 +1,6 @@
+from email.policy import default
 from io import BytesIO
 from PIL import Image
-
 from django.core.files import File
 from django.db import models
 from django.utils import timezone
@@ -8,8 +8,8 @@ from django.utils import timezone
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=255)
-    slug = models.SlugField()
+    name = models.CharField(max_length=255, default = None)
+    slug = models.SlugField(default= '')
 
     class Meta:
         ordering = ('name',)
@@ -19,7 +19,7 @@ class Category(models.Model):
     
     def get_absolute_url(self):
         return f'/{self.slug}/'
-        
+
 class Vendor(models.Model):
     #user = models.OneToOneField(UserProfile, related_name='vendor', on_delete=models.CASCADE)
     store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
@@ -36,7 +36,7 @@ class Products(models.Model):
     product_name = models.CharField(max_length=100, default = '')
     #store_name = models.ForeignKey(Vendor, default = '', on_delete= models.CASCADE)
     description = models.TextField(blank=True, null=True)
-    slug = models.SlugField()
+    slug = models.SlugField(default='')
     upload_Product_Image = models.ImageField(default='default.jpg', upload_to = 'products')
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE, default = '')       
     thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True)                                  
@@ -59,25 +59,25 @@ class Products(models.Model):
 
        
     def __str__(self):
-        return self.name
+        return self.product_name
     
     def get_absolute_url(self):
         return f'/{self.category.slug}/{self.slug}/'
     
     def get_image(self):
         if self.image:
-            return 'http://127.0.0.1:8000' + self.image.url
+            return 'http://0.0.0.0:5000' + self.image.url
         return ''
     
     def get_thumbnail(self):
         if self.thumbnail:
-            return 'http://127.0.0.1:8000' + self.thumbnail.url
+            return 'http://0.0.0.0:5000' + self.thumbnail.url
         else:
             if self.image:
                 self.thumbnail = self.make_thumbnail(self.image)
                 self.save()
 
-                return 'http://127.0.0.1:8000' + self.thumbnail.url
+                return 'http://0.0.0.0:5000' + self.thumbnail.url
             else:
                 return ''
     
@@ -87,14 +87,12 @@ class Products(models.Model):
         img.thumbnail(size)
 
         thumb_io = BytesIO()
-        img.save(thumb_io, 'JPEG', quality=85)
+        img.save(thumb_io, 'PNG', quality=85)
 
-        thumbnail = File(thumb_io, name=image.name)
+        thumbnail = File(thumb_io, name=image.product_name)
 
         return thumbnail
 
-    def __str__(self):
-        return self.product_name
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Products, default=None, on_delete=models.CASCADE)
