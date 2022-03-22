@@ -50,7 +50,7 @@ class Products(models.Model):
         ordering = ['-date_created']
 
     def __str__(self):
-        return '{} {}'.format(self.product_name)
+        return self.product_name
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Products, default=None, on_delete=models.CASCADE)
