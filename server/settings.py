@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'api',
     'stores',
-    'wallet',
+    'order',
     'oauth2_provider',
     'social_django',
     'drf_social_oauth2',
