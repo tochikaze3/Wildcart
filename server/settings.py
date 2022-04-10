@@ -41,9 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+<<<<<<< HEAD
     #'accounts',
     'api',
     'stores',
+=======
+    'api',
+    'stores',
+    'wallet',
+    'oauth2_provider',
+    'social_django',
+    'drf_social_oauth2',
+>>>>>>> 51778597d662549565cfa9a31299ed477538d603
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
@@ -53,6 +62,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'rest_auth.registration',
 ]
+
+#AUTH_USER_MODEL='accounts.Account'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,6 +96,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -93,10 +106,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'server.wsgi.application'
 
 
+AUTHENTICATION_BACKENDS = (  
+  'drf_social_oauth2.backends.DjangoOAuth2',
+  'django.contrib.auth.backends.ModelBackend',
+)
+REST_FRAMEWORK = {
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+       'oauth2_provider.contrib.rest_framework.OAuth2Authentication',  
+       'drf_social_oauth2.authentication.SocialAuthentication',
+   )
+}
 
-#AUTH_USER_MODEL = 'accounts.UserProfile'
 #REST_AUTH_SERIALIZERS = {
-#    'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
+  #  'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
 #}
 
 
@@ -109,6 +131,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [ 
     'rest_framework.authentication.SessionAuthentication', 
     'rest_framework.authentication.BasicAuthentication',
+    'oauth2_provider.contrib.rest_framework.OAuth2Authentication',  
+    'drf_social_oauth2.authentication.SocialAuthentication',
 ],
     }
     
@@ -179,8 +203,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_URL = '/staticfiles/'
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 

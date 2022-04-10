@@ -1,14 +1,14 @@
 from rest_framework import serializers
-from stores.models import Products, Category, ProductImage, Vendor
-#vendor_api serializers
+from django.contrib.auth import get_user_model
+from stores.models import Products, Category, ProductImage, Vendor, Services
 
-#class UserSerializer(serializers.ModelSerializer):
+class ServiceSerializer(serializers.ModelSerializer):
     
-    #class Meta:
-        #model = UserProfile() 
-        #fields = ('id', 'email',)
+    class Meta:
+        model = Services
+        fields = '__all__'
 
- 
+
 class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:
