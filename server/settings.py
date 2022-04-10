@@ -41,18 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-<<<<<<< HEAD
-    #'accounts',
     'api',
     'stores',
-=======
-    'api',
-    'stores',
-    'wallet',
     'oauth2_provider',
     'social_django',
     'drf_social_oauth2',
->>>>>>> 51778597d662549565cfa9a31299ed477538d603
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
