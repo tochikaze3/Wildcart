@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     #'accounts',
     'api',
     'stores',
-    'wallet',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
