@@ -1,9 +1,6 @@
 from django.db import models
-<<<<<<< HEAD
 import uuid
-=======
 from django.utils import timezone
->>>>>>> 51778597d662549565cfa9a31299ed477538d603
 # Create your models here.
 
 
@@ -19,14 +16,6 @@ def get_all_categories():
     return Category.objects.all()
 
 
-<<<<<<< HEAD
-class Products(models.Model):
-        id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-        product_Name = models.CharField(max_length=250, help_text = 'Enter product name' )
-        upload_Product_Image = models.ImageField(default='default.jpg')
-        product_Description = models.CharField(default = '', max_length= 200)
-        weight = models.CharField(max_length= 10, default = 'g/kg/lb', blank= True)
-=======
 class Vendor(models.Model):
     #user = models.OneToOneField(UserProfile, related_name='vendor', on_delete=models.CASCADE)
     store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
@@ -38,7 +27,6 @@ class Vendor(models.Model):
 
     def __str__(self):       
         return self.store_name
->>>>>>> 51778597d662549565cfa9a31299ed477538d603
 
 class Products(models.Model):
     Product_name = models.CharField(max_length=100, default = '')
@@ -67,21 +55,6 @@ class Products(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Products, default=None, on_delete=models.CASCADE)
-<<<<<<< HEAD
-    images = models.FileField(upload_to = 'staticfiles/images')
-
-
-
-
-class Vendor(models.Model):
-    #user = models.OneToOneField(UserProfile, related_name='vendor', on_delete=models.CASCADE)
-    store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
-    logo = models.ImageField(upload_to = 'staticfiles/images')
-    about = models.TextField(max_length=1000, help_text='Give a catchy description of your store', default= '')
-    phone = models.CharField(max_length=20, default= "", null= False, blank= False)
-    email = models.EmailField(default= '', max_length= 250, help_text= 'Your email name')
-    location = models.CharField(help_text= 'Enter your store location', default= '', max_length= 250)
-=======
     images = models.ImageField(upload_to = 'products')
  
     def __str__(self):
@@ -97,7 +70,6 @@ class Services(models.Model):
         ('p', 'Partition'),
         ('FR', 'Flat Rate'),
         )
->>>>>>> 51778597d662549565cfa9a31299ed477538d603
 
     payment_method = models.CharField(max_length= 250, choices=payment, default='')
     
