@@ -1,15 +1,5 @@
 from rest_framework import viewsets
 #from .permissions import IsAuthorOrReadOnly
-<<<<<<< HEAD
-from django.contrib.auth import get_user_model
-from stores.models import Vendor, Category, Products, ProductImage, Services
-from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer, ServiceSerializer
-from django.shortcuts import render
-from rest_framework.views import APIView
-from rest_framework import status,generics
-from rest_framework.response import Response  
-from rest_framework import permissions
-=======
 from stores.models import Vendor, Category, Products, ProductImage,Services
 from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer,ServiceSerializer
 
@@ -23,7 +13,6 @@ from .serializers import VendorSerializer,ProductSerializer, CategorySerializer,
 #class UserDetail(generics.RetrieveUpdateDestroyAPIView):
         #queryset = CustomUser.objects.all()
         #serializer_class = UserSerializer
->>>>>>> test
 
 
 class ServiceViewSet(viewsets.ModelViewSet):
