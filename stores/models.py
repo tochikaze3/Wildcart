@@ -54,3 +54,20 @@ class Vendor(models.Model):
 
     def __str__(self):       
         return self.store_name
+
+
+
+class Services(models.Model):
+    service = models.ForeignKey(Vendor, default='', on_delete= models.CASCADE)
+    service_name = models.CharField(max_length=250, default='', help_text= 'Describe your services ')
+    service_description = models.TextField(max_length=1000, default='')
+    payment = (
+        ('pp', 'Pay per Hour'),
+        ('p', 'Partition'),
+        ('FR', 'Flat Rate'),
+        )
+
+    payment_method = models.CharField(max_length= 250, choices=payment, default='')
+    
+    def __str__(self):
+        return self.service_name
