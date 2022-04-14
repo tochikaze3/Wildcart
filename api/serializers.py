@@ -1,6 +1,11 @@
 from rest_framework import serializers
+<<<<<<< HEAD
 from django.contrib.auth import get_user_model
 from stores.models import Products, Category, ProductImage, Vendor, Services
+=======
+from stores.models import Products, Category, ProductImage, Vendor, Services
+#vendor_api serializers
+>>>>>>> test
 
 class ServiceSerializer(serializers.ModelSerializer):
     
@@ -9,6 +14,17 @@ class ServiceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+<<<<<<< HEAD
+=======
+ 
+
+class ServiceSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Services
+        fields = '__all__'
+
+>>>>>>> test
 class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:

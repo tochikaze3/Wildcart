@@ -14,5 +14,7 @@ router.register(r'products', ProductViewSet, basename='products')
 router.register(r'services', ServiceViewSet, basename='services') 
 router.register(r'productimages', ProductImageViewSet, basename='productimages')
 router.register(r'categories', CategoryViewSet, basename='categories')
+router.register(r'services', ServiceViewSet, basename='service')
+
 
 urlpatterns = router.urls
