@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from stores.models import Products, Category, ProductImage, Vendor
+from stores.models import Products, Category, ProductImage, Vendor, Services
 #vendor_api serializers
 
 #class UserSerializer(serializers.ModelSerializer):
@@ -9,6 +9,13 @@ from stores.models import Products, Category, ProductImage, Vendor
         #fields = ('id', 'email',)
 
  
+
+class ServiceSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Services
+        fields = '__all__'
+
 class ProductSerializer(serializers.ModelSerializer):
     
     class Meta:

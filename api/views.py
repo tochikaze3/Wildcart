@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 #from .permissions import IsAuthorOrReadOnly
-from stores.models import Vendor, Category, Products, ProductImage
-from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer
+from stores.models import Vendor, Category, Products, ProductImage,Services
+from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer,ServiceSerializer
 
 
  
@@ -14,6 +14,11 @@ from .serializers import VendorSerializer,ProductSerializer, CategorySerializer,
         #queryset = CustomUser.objects.all()
         #serializer_class = UserSerializer
 
+
+
+class ServiceViewSet(viewsets.ModelViewSet):
+        queryset = Services.objects.all()
+        serializer_class = ServiceSerializer
 
 
 class VendorViewSet(viewsets.ModelViewSet):
