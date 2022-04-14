@@ -29,7 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', include_docs_urls(title='wildcart')), 
     path('api/v1/', include(router.urls)),
-    path('api-auth/', include('drf_social_oauth2.urls',namespace='drf')),
+    #path('api-auth/', include('drf_social_oauth2.urls',namespace='drf')),
     path('api-auth/', include('rest_framework.urls')), 
     path('api/v1/rest-auth/', include('rest_auth.urls')),
     path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
