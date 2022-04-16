@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    #'accounts',
+    'social_django',
     'api',
     'stores',
     'rest_framework',
@@ -65,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 # CORS CONFIGURATION
@@ -86,8 +89,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+<<<<<<< HEAD
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
+=======
+                'social_django.context_processors.backends',  
+                'social_django.context_processors.login_redirect', 
+>>>>>>> test
             ],
         },
     },
@@ -122,6 +130,14 @@ WSGI_APPLICATION = 'server.wsgi.application'
     #'oauth2_provider.contrib.rest_framework.OAuth2Authentication',  
     #'drf_social_oauth2.authentication.SocialAuthentication',], }
     
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 
