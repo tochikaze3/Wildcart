@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     #'accounts',
-    'social_django',
+    #'social_django',
     'api',
     'stores',
     'rest_framework',
