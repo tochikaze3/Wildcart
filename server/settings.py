@@ -116,6 +116,7 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 #REST FRAMEWORK CONFIGURATION
 
+<<<<<<< HEAD
 #REST_FRAMEWORK = { 
  #   'DEFAULT_PERMISSION_CLASSES': [
   #  'rest_framework.permissions.IsAuthenticated',],
@@ -124,14 +125,34 @@ WSGI_APPLICATION = 'server.wsgi.application'
     #'rest_framework.authentication.BasicAuthentication',
     #'oauth2_provider.contrib.rest_framework.OAuth2Authentication',  
     #'drf_social_oauth2.authentication.SocialAuthentication',], }
+=======
+REST_FRAMEWORK = { 
+    'DEFAULT_PERMISSION_CLASSES': [
+    'rest_framework.permissions.IsAuthenticated',
+],
+    'DEFAULT_AUTHENTICATION_CLASSES': [ 
+    'rest_framework.authentication.SessionAuthentication', 
+    'rest_framework.authentication.BasicAuthentication',
+],
+
+'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+    }
+>>>>>>> test
     
 
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+
 AUTHENTICATION_BACKENDS = (
+
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
