@@ -116,16 +116,6 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 #REST FRAMEWORK CONFIGURATION
 
-<<<<<<< HEAD
-#REST_FRAMEWORK = { 
- #   'DEFAULT_PERMISSION_CLASSES': [
-  #  'rest_framework.permissions.IsAuthenticated',],
-  #  'DEFAULT_AUTHENTICATION_CLASSES': [ 
-   # 'rest_framework.authentication.SessionAuthentication', 
-    #'rest_framework.authentication.BasicAuthentication',
-    #'oauth2_provider.contrib.rest_framework.OAuth2Authentication',  
-    #'drf_social_oauth2.authentication.SocialAuthentication',], }
-=======
 REST_FRAMEWORK = { 
     'DEFAULT_PERMISSION_CLASSES': [
     'rest_framework.permissions.IsAuthenticated',
@@ -139,7 +129,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
     }
->>>>>>> test
     
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"
