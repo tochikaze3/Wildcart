@@ -30,6 +30,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['wildcart.herokuapp.com', '0.0.0.0', '127.0.0.1']
 
+AUTH_USER_MODEL = "accounts.Account"
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'account.backends.CaseInsensitiveModelBackend'
+)
 
 # Application definition
 
@@ -54,8 +59,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'rest_auth.registration',
 ]
-
-#AUTH_USER_MODEL='accounts.Account'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

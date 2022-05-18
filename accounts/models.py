@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser
 # Create your models here.
 
 class Account(AbstractBaseUser):
-    email = models.EmailField(verbose_name= "Email", max_length= 50, null=False, Unique = True)
+    email = models.EmailField(verbose_name= "Email", max_length= 50, null=False, unique = True)
     username = models.CharField(max_length= 50, unique= True)
     date_joined = models.DateTimeField(verbose_name= "Date Joined", auto_now_add=True)
     last_login = models.DateTimeField(verbose_name= "Last Login", auto_now=True)
