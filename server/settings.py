@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    #'accounts',
+    'accounts',
     'social_django',
     'api',
     'stores',
@@ -156,12 +156,8 @@ SITE_ID = 1
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd7120nmt72g8ok',
-        'HOST': 'ec2-54-87-112-29.compute-1.amazonaws.com',
-        'PORT': 5432,
-        'USER': 'dbyolnhegemfyg',
-        'PASSWORD': '1f6261e67caa0ce7a5a889d81199a80929ba26fdd63e09bf88859e652767aa5f'
+       'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
