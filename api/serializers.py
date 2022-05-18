@@ -1,15 +1,22 @@
 from rest_framework import serializers
+from accounts.models import Account
 from stores.models import Products, Category, ProductImage, Vendor, Services
 #vendor_api serializers
+
+
+
+class AccountSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Account
+        fields = '__all__'
+
 
 class ServiceSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Services
         fields = '__all__'
-
-
- 
 
 class ServiceSerializer(serializers.ModelSerializer):
     

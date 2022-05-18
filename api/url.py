@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ProductViewSet,ProductImageViewSet, VendorViewSet, CategoryViewSet, ServiceViewSet
+from .views import ProductViewSet,ProductImageViewSet, VendorViewSet, CategoryViewSet, ServiceViewSet, AccountViewSet
 from rest_framework import routers
 
 # Wire up our API using automatic URL routing.
@@ -8,7 +8,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 
-#router.register(r'users', UserViewSet, basename='create_users') 
+router.register(r'users', AccountViewSet, basename='accounts') 
 router.register(r'vendors', VendorViewSet, basename='vendors') 
 router.register(r'products', ProductViewSet, basename='products')
 router.register(r'services', ServiceViewSet, basename='services') 

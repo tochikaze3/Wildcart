@@ -1,28 +1,20 @@
 from rest_framework import viewsets
 #from .permissions import IsAuthorOrReadOnly
+from accounts.models import Account
 from stores.models import Vendor, Category, Products, ProductImage,Services
-from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer,ServiceSerializer
+from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer,ServiceSerializer, AccountSerializer
 
 
  
-#user views
-#class UserList(generics.ListCreateAPIView): 
-#        queryset = CustomUser.objects.all() 
- #       serializer_class = UserSerializer
 
-#class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-        #queryset = CustomUser.objects.all()
-        #serializer_class = UserSerializer
 
+class AccountViewSet(viewsets.ModelViewSet):
+        queryset = Account.objects.all()
+        serializer_class = AccountSerializer
 
 class ServiceViewSet(viewsets.ModelViewSet):
         queryset = Services.objects.all()
         serializer_class = ServiceSerializer
-
-class ServiceViewSet(viewsets.ModelViewSet):
-        queryset = Services.objects.all()
-        serializer_class = ServiceSerializer
-
 
 class VendorViewSet(viewsets.ModelViewSet):
         queryset = Vendor.objects.all()
