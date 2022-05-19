@@ -31,10 +31,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['wildcart.herokuapp.com', '0.0.0.0', '127.0.0.1']
 
 AUTH_USER_MODEL = "accounts.Account"
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.AllowAllUsersModelBackend',
-    'account.backends.CaseInsensitiveModelBackend'
-)
 
 # Application definition
 
@@ -112,13 +108,12 @@ WSGI_APPLICATION = 'server.wsgi.application'
    #)
 #}
 
-#REST_AUTH_SERIALIZERS = {
-  #  'USER_DETAILS_SERIALIZER': 'api.serializers.UserSerializer',
-#}
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'api.serializers.AccountSerializer',
+}
 
 
 #REST FRAMEWORK CONFIGURATION
-
 REST_FRAMEWORK = { 
     'DEFAULT_PERMISSION_CLASSES': [
     'rest_framework.permissions.IsAuthenticated',
@@ -127,11 +122,9 @@ REST_FRAMEWORK = {
     'rest_framework.authentication.SessionAuthentication', 
     'rest_framework.authentication.BasicAuthentication',
 ],
-
-'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
     }
+    
+    
     
 
 ACCOUNT_AUTHENTICATION_METHOD = "email"
@@ -145,6 +138,8 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
+     'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'account.backends.CaseInsensitiveModelBackend'
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
