@@ -1,9 +1,9 @@
 from django.db import models
 from .manager import AccountManager
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin
 # Create your models here.
 
-class Account(AbstractBaseUser):
+class Account(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(verbose_name= "Email", max_length= 50, null=False, unique = True)
     username = models.CharField(max_length= 50, unique= True)
     date_joined = models.DateTimeField(verbose_name= "Date Joined", auto_now_add=True)
@@ -22,7 +22,7 @@ class Account(AbstractBaseUser):
     def __str__(self):
         return self.username
 
-    def has_perm(self, perm, obj):
+    def has_perm(self, obj=AccountManager()):
 
         return True
 
