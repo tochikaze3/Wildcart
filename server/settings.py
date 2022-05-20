@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3^@pqc@i8o-33qiv13*h(873xljml^3d9r1nkmvkqv!rnm!_z%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['wildcart.herokuapp.com', '0.0.0.0', '127.0.0.1']
 
