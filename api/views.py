@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 #from .permissions import IsAuthorOrReadOnly
-from accounts.models import Account
+from accounts.models import My_User
 from stores.models import Vendor, Category, Products, ProductImage,Services
 from .serializers import VendorSerializer,ProductSerializer, CategorySerializer, ProductImageSerializer,ServiceSerializer, AccountSerializer
 
@@ -9,7 +9,7 @@ from .serializers import VendorSerializer,ProductSerializer, CategorySerializer,
 
 
 class AccountViewSet(viewsets.ModelViewSet):
-        queryset = Account.objects.all()
+        queryset = My_User.objects.all()
         serializer_class = AccountSerializer
 
 class ServiceViewSet(viewsets.ModelViewSet):

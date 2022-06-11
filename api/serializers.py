@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from accounts.models import Account
+from accounts.models import My_User
 from stores.models import Products, Category, ProductImage, Vendor, Services
 #vendor_api serializers
 
@@ -8,7 +8,7 @@ from stores.models import Products, Category, ProductImage, Vendor, Services
 class AccountSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = Account
+        model = My_User
         fields = '__all__'
 
 

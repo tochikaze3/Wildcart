@@ -1,7 +1,7 @@
 from django.db import models
 import uuid
 from django.utils import timezone
-from accounts.models import Account
+from accounts.models import My_User
 # Create your models here.
 
 
@@ -18,7 +18,7 @@ def get_all_categories():
  
 
 class Vendor(models.Model):
-    user = models.OneToOneField(Account, on_delete=models.CASCADE, default="")
+    user = models.OneToOneField(My_User, on_delete=models.CASCADE, default="")
     store_name = models.CharField(help_text= 'Your store name', default= '', max_length= 250)
     logo = models.ImageField(upload_to = 'staticfiles/images')
     about = models.TextField(max_length=1000, help_text='Give a catchy description of your store', default= '')
@@ -30,9 +30,9 @@ class Vendor(models.Model):
         return self.store_name
 
 class Products(models.Model):
+    vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE, default="" )
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     Product_name = models.CharField(max_length=100, default = '')
-    store_name = models.ForeignKey(Vendor, default = '', on_delete= models.CASCADE)
     upload_Product_Image = models.ImageField(default='default.jpg', upload_to = 'staticfiles/products')
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE, default = '')
     price = models.IntegerField()

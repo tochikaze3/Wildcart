@@ -142,6 +142,8 @@ AUTHENTICATION_BACKENDS = (
     'account.backends.CaseInsensitiveModelBackend'
 )
 
+AUTH_USER_MODEL = "accounts.My_User"
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' 
 
 
@@ -152,17 +154,24 @@ SITE_ID = 1
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+    #'default': {
+       # 'ENGINE': 'django.db.backends.postgresql',
+       # 'NAME': 'd7120nmt72g8ok',
+       # 'HOST': 'ec2-54-87-112-29.compute-1.amazonaws.com',
+        #'PORT': '5432',
+       # 'USER': 'dbyolnhegemfyg',
+       # 'PASSWORD': '1f6261e67caa0ce7a5a889d81199a80929ba26fdd63e09bf88859e652767aa5f',
+   # },
+#}
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd7120nmt72g8ok',
-        'HOST': 'ec2-54-87-112-29.compute-1.amazonaws.com',
-        'PORT': '5432',
-        'USER': 'dbyolnhegemfyg',
-        'PASSWORD': '1f6261e67caa0ce7a5a889d81199a80929ba26fdd63e09bf88859e652767aa5f',
-    },
+       'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
