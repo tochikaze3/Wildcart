@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_auth',
     'corsheaders',
     'allauth', 
+    'allauth.account',
     'allauth.socialaccount',
     'rest_auth.registration',
 ]
